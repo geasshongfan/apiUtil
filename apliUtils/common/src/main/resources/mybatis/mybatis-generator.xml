@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<!-- 设置mysql驱动路径 -->
+<classPathEntry location="D:\Maven\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+
+<!-- 此处指定生成针对MyBatis3的DAO -->
+  <context id="context1"  targetRuntime="MyBatis3">
+  
+<!--   为了防止生成过多注释 -->
+	<commentGenerator>
+		<property name="suppressAllComments" value="true" />
+		<property name="suppressDate" value="true" />
+	</commentGenerator>
+ 
+  <!-- jdbc连接信息 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"  connectionURL="jdbc:mysql://599fc4d823ddf.sh.cdb.myqcloud.com:5665/match-zygj"  userId="root" password="cjroot1@match" />
+    
+<!--     数据表对应的model 层 -->
+	<javaModelGenerator targetPackage="mybatis.com.apli.vo"
+		targetProject="E:\apliUtils\common\src\test\java\">
+		<property name="enableSubPackages" value="true" />
+		<property name="trimStrings" value="true" />
+	</javaModelGenerator>
+    
+<!--     sql mapper 映射配置文件 -->
+	<sqlMapGenerator targetPackage="mybatis.com.apli.mapping"
+		targetProject="E:\apliUtils\common\src\test\java\">
+		<property name="enableSubPackages" value="true" />
+	</sqlMapGenerator>
+    
+<!--     在ibatis2 中是dao层，但在mybatis3中，其实就是mapper接口 -->
+	<javaClientGenerator targetPackage="mybatis.com.apli.mapper"
+		targetProject="E:\apliUtils\common\src\test\java" type="XMLMAPPER">
+		<property name="enableSubPackages" value="true" />
+	</javaClientGenerator>
+    
+	<table schema="mybatis" tableName="product_car_sku_color" domainObjectName="ProductCarSkuColorVo"
+		enableCountByExample="false" enableUpdateByExample="false"
+		enableDeleteByExample="false" enableSelectByExample="false"
+		selectByExampleQueryId="false">
+	</table>
+  </context>
+</generatorConfiguration>

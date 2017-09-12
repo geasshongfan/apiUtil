@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置Java属性-数据库表字段对应驼峰规则  -->
+	<settings>
+          <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+	<!-- 配置分页拦截器 -->
+	<plugins>
+		<plugin interceptor="com.apli.common.spring.interceptor.PageInterceptor">
+			<property name="defaultMaxPageSize" value="500" />
+		</plugin>
+	</plugins>
+</configuration>

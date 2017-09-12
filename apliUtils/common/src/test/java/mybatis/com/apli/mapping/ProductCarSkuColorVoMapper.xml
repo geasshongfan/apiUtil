@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.com.apli.mapper.ProductCarSkuColorVoMapper">
+  <resultMap id="BaseResultMap" type="mybatis.com.apli.vo.ProductCarSkuColorVo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="car_no" jdbcType="VARCHAR" property="carNo" />
+    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="color_facade_id" jdbcType="INTEGER" property="colorFacadeId" />
+    <result column="color_interior_id" jdbcType="INTEGER" property="colorInteriorId" />
+    <result column="inventory_num" jdbcType="INTEGER" property="inventoryNum" />
+    <result column="extra_price" jdbcType="DECIMAL" property="extraPrice" />
+    <result column="image_paths" jdbcType="VARCHAR" property="imagePaths" />
+    <result column="memo" jdbcType="VARCHAR" property="memo" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="updator_id" jdbcType="INTEGER" property="updatorId" />
+    <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="online_time" jdbcType="TIMESTAMP" property="onlineTime" />
+    <result column="offline_time" jdbcType="TIMESTAMP" property="offlineTime" />
+    <result column="device_num" jdbcType="VARCHAR" property="deviceNum" />
+    <result column="as_cover" jdbcType="BIT" property="asCover" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, car_no, sku_id, color_facade_id, color_interior_id, inventory_num, extra_price, 
+    image_paths, memo, is_deleted, created_time, creator_id, updator_id, updated_time, 
+    status, online_time, offline_time, device_num, as_cover
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product_car_sku_color
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product_car_sku_color
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis.com.apli.vo.ProductCarSkuColorVo">
+    insert into product_car_sku_color (id, car_no, sku_id, 
+      color_facade_id, color_interior_id, inventory_num, 
+      extra_price, image_paths, memo, 
+      is_deleted, created_time, creator_id, 
+      updator_id, updated_time, status, 
+      online_time, offline_time, device_num, 
+      as_cover)
+    values (#{id,jdbcType=INTEGER}, #{carNo,jdbcType=VARCHAR}, #{skuId,jdbcType=INTEGER}, 
+      #{colorFacadeId,jdbcType=INTEGER}, #{colorInteriorId,jdbcType=INTEGER}, #{inventoryNum,jdbcType=INTEGER}, 
+      #{extraPrice,jdbcType=DECIMAL}, #{imagePaths,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{isDeleted,jdbcType=BIT}, #{createdTime,jdbcType=TIMESTAMP}, #{creatorId,jdbcType=INTEGER}, 
+      #{updatorId,jdbcType=INTEGER}, #{updatedTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{onlineTime,jdbcType=TIMESTAMP}, #{offlineTime,jdbcType=TIMESTAMP}, #{deviceNum,jdbcType=VARCHAR}, 
+      #{asCover,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.com.apli.vo.ProductCarSkuColorVo">
+    insert into product_car_sku_color
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="carNo != null">
+        car_no,
+      </if>
+      <if test="skuId != null">
+        sku_id,
+      </if>
+      <if test="colorFacadeId != null">
+        color_facade_id,
+      </if>
+      <if test="colorInteriorId != null">
+        color_interior_id,
+      </if>
+      <if test="inventoryNum != null">
+        inventory_num,
+      </if>
+      <if test="extraPrice != null">
+        extra_price,
+      </if>
+      <if test="imagePaths != null">
+        image_paths,
+      </if>
+      <if test="memo != null">
+        memo,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="createdTime != null">
+        created_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="updatorId != null">
+        updator_id,
+      </if>
+      <if test="updatedTime != null">
+        updated_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="onlineTime != null">
+        online_time,
+      </if>
+      <if test="offlineTime != null">
+        offline_time,
+      </if>
+      <if test="deviceNum != null">
+        device_num,
+      </if>
+      <if test="asCover != null">
+        as_cover,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carNo != null">
+        #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="skuId != null">
+        #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="colorFacadeId != null">
+        #{colorFacadeId,jdbcType=INTEGER},
+      </if>
+      <if test="colorInteriorId != null">
+        #{colorInteriorId,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryNum != null">
+        #{inventoryNum,jdbcType=INTEGER},
+      </if>
+      <if test="extraPrice != null">
+        #{extraPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="imagePaths != null">
+        #{imagePaths,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="createdTime != null">
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="updatorId != null">
+        #{updatorId,jdbcType=INTEGER},
+      </if>
+      <if test="updatedTime != null">
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="onlineTime != null">
+        #{onlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlineTime != null">
+        #{offlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceNum != null">
+        #{deviceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="asCover != null">
+        #{asCover,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.com.apli.vo.ProductCarSkuColorVo">
+    update product_car_sku_color
+    <set>
+      <if test="carNo != null">
+        car_no = #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="skuId != null">
+        sku_id = #{skuId,jdbcType=INTEGER},
+      </if>
+      <if test="colorFacadeId != null">
+        color_facade_id = #{colorFacadeId,jdbcType=INTEGER},
+      </if>
+      <if test="colorInteriorId != null">
+        color_interior_id = #{colorInteriorId,jdbcType=INTEGER},
+      </if>
+      <if test="inventoryNum != null">
+        inventory_num = #{inventoryNum,jdbcType=INTEGER},
+      </if>
+      <if test="extraPrice != null">
+        extra_price = #{extraPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="imagePaths != null">
+        image_paths = #{imagePaths,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="createdTime != null">
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="updatorId != null">
+        updator_id = #{updatorId,jdbcType=INTEGER},
+      </if>
+      <if test="updatedTime != null">
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="onlineTime != null">
+        online_time = #{onlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offlineTime != null">
+        offline_time = #{offlineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deviceNum != null">
+        device_num = #{deviceNum,jdbcType=VARCHAR},
+      </if>
+      <if test="asCover != null">
+        as_cover = #{asCover,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.com.apli.vo.ProductCarSkuColorVo">
+    update product_car_sku_color
+    set car_no = #{carNo,jdbcType=VARCHAR},
+      sku_id = #{skuId,jdbcType=INTEGER},
+      color_facade_id = #{colorFacadeId,jdbcType=INTEGER},
+      color_interior_id = #{colorInteriorId,jdbcType=INTEGER},
+      inventory_num = #{inventoryNum,jdbcType=INTEGER},
+      extra_price = #{extraPrice,jdbcType=DECIMAL},
+      image_paths = #{imagePaths,jdbcType=VARCHAR},
+      memo = #{memo,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      updator_id = #{updatorId,jdbcType=INTEGER},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=TINYINT},
+      online_time = #{onlineTime,jdbcType=TIMESTAMP},
+      offline_time = #{offlineTime,jdbcType=TIMESTAMP},
+      device_num = #{deviceNum,jdbcType=VARCHAR},
+      as_cover = #{asCover,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
